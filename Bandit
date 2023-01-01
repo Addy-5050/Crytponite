@@ -1,1 +1,15 @@
-
+level 0 - ssh bandit0@bandit.labs.overthewire.org -p 2220
+          password - bandit0
+          ls(to list all the files)
+          cat readme (to display the content of the readme file)
+          
+level 0-1 - ssh bandit1@bandit.labs.overthewire.org -p 2220
+            password - string from the readme file from level 0
+            ls
+            cat <- (to display the contents of dash named file and copy the displayed string)
+       
+level 1-2  ssh bandit2@bandit.labs.overthewire.org -p 2220
+           password - string of the dash named file from previous level
+           ls
+           cat "spaces in the files" (we use double quotes to tell that the name is a single argument else it would treat each word as a different argument)
+           
