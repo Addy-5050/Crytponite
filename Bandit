@@ -4,17 +4,40 @@ level 0 - ssh bandit0@bandit.labs.overthewire.org -p 2220
           cat readme (to display the content of the readme file)
           
 level 0-1 - ssh bandit1@bandit.labs.overthewire.org -p 2220
-            password - string from the readme file from level 0
+            password - NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL (string from the readme file from level 0)
             ls
             cat <- (to display the contents of dash named file and copy the displayed string)
        
 level 1-2  ssh bandit2@bandit.labs.overthewire.org -p 2220
-           password - string of the dash named file from previous level
+           password - rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi (string of the dash named file from previous level)
            ls
            cat "spaces in the files" (we use double quotes to tell that the name is a single argument else it would treat each word as a different argument)
      
 level 2-3 ssh bandit3@bandit.labs.overthewire.org -p 2220
-          password - string from the previous level
+          password - aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG (string from the previous level)
           ls
-          cd
-           
+          cd inhere (to change the current working directory)
+          ls -a (to show all the entries starting with .)
+          cat .hidden
+          
+level 3-4 ssh bandit4@bandit.labs.overthewire.org -p 2220
+          password - 2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe (string from the hidden file of the previous level)
+          ls
+          cd inhere
+          file ./* (to provide all the files and type of information stored in it)
+          (we see that only file 7 contains ASCII data which is human readable)
+          (even if we cat other files we see some unreadable text)
+          cat < -file07
+          
+level 4-5 ssh bandit5@bandit.labs.overthewire.org -p 2220
+          password- lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR(string from previous .file07)
+          ls
+          cd inhere
+          find -size 1033c (to find the file of size 1033 c specifies size in bytes. Only one files shows)
+          cat ./maybehere07/.file2
+          exit
+level 5-6 ssh bandit6@bandit.labs.overthewire.org -p 2220
+          password - P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU (string from the previous level)
+          
+
+          
