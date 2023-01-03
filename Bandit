@@ -36,8 +36,56 @@ level 4-5 ssh bandit5@bandit.labs.overthewire.org -p 2220
           find -size 1033c (to find the file of size 1033 c specifies size in bytes. Only one files shows)
           cat ./maybehere07/.file2
           exit
+          
 level 5-6 ssh bandit6@bandit.labs.overthewire.org -p 2220
           password - P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU (string from the previous level)
+          find / -size 33c -user bandit7 -group bandit6 2>/dev/null (/ here means to look in every file in the server)
+                                                                    (-size 33c means to look for the size of file 33bytes, -user means to look for the specified user)
+                                                                    (2> Redirect STDERR to specified file. If file exists, overwrite it.
+                                                                     If it does not exist, create it.
+                                                                     2>> Redirect STDERR to specified file. If file exists, append to it.
+                                                                     If it does not exist, create it.STDERR, by
+                                                                     default, sent to
+                                                                     current terminal
+                                                                     (/dev/tty))
+          cat the file location that appears for the password
+          exit
+ 
+ level 6-7 ssh bandit7@bandit.labs.overthewire.org -p 2220
+           password - z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+           ls
+           data.txt
+           grep -F "millionth" data.txt (grep finds the particular pattern in the specified file and prints all the lines containg the pattern)
+           exit
+           
+ level 7-8 ssh bandit8@bandit.labs.overthewire.org -p 2220
+           password - TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+           ls
+           data.txt
+           sort data.txt | uniq -c (sort command groups or sorts the strings in data.txt alphabetically which we then pipe it to uniq -c commoand which gives us the number of repeated strings)
+           exit
+           
+  level 8-9 ssh bandit9.bandits=.labs.overthwire.org -p 2220
+            password - EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+            ls 
+            data.txt
+            strings data.txt
+            (strings - print the sequences of printable characters in files)
+            (we then notice that there is only one strings preceeded by several =)
+            
+  level 9-10 ssh bandit10@bandit.labs.overthewire.org -p 2220
+             password - G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+             (In computer programming, Base64 is a group of binary-to-text encoding schemes that represent binary data (more specifically, a sequence of 8-bit bytes) in sequences of 24 bits that can be represented by four 6-bit Base64 digits.)
+             ls
+             cat data.txt | base64 -d (we pipe the cat command with base64 which decodes -d the base64 striung in the data.txt file)
+             
+   level 10-11 ssh bandit11@bandit.labs.overthewire.org -p 2220
+               password - 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+               
+            
+
+          
+          
           
 
           
