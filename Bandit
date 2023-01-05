@@ -81,6 +81,12 @@ level 5-6 ssh bandit6@bandit.labs.overthewire.org -p 2220
              
    level 10-11 ssh bandit11@bandit.labs.overthewire.org -p 2220
                password - 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+               ls
+               cat data.txt
+               exit
+        
+   level 11-12 ssh bandit12@bandit.labs.overthewire.org -p 2220
+               password - JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
                
             
 
