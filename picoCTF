@@ -1,4 +1,25 @@
-1)MOD26(cryptography)- the flag given is a caesear cipher in which all the characters are shifted by 13 positions
+Cryptography
+1)MOD26- the flag given is a caesear cipher in which all the characters are shifted by 13 positions
+
+2)transposition trial
+
+with open("message.txt") as filp:
+     contents = flip.read()
+     
+for i in range(0,len(contents),3):
+    chunk = contents[i,i+3]
+    
+    a,b,c=chunk
+    print(c+a+b, end="")
+we observe that all the words are shifted by 3 positions so we print the flag in chunks of 3
+then to decode the flag we assign a b c to h e T that is a holder place for all the chunks
+we then print how things were rearranged that is (c a b)
+
+
+
+
+General Skills
+1) Obident Cat - 
 
 
 
