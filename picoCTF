@@ -15,6 +15,10 @@ we observe that all the words are shifted by 3 positions so we print the flag in
 then to decode the flag we assign a b c to h e T that is a holder place for all the chunks
 we then print how things were rearranged that is (c a b)
 
+3) Substitution0
+
+
+
 
 
 
