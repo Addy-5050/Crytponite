@@ -1,6 +1,7 @@
 Cryptography
 1)MOD26- the flag given is a caesear cipher in which all the characters are shifted by 13 positions
 
+
 2)transposition trial
 
 with open("message.txt") as filp:
@@ -15,7 +16,70 @@ we observe that all the words are shifted by 3 positions so we print the flag in
 then to decode the flag we assign a b c to h e T that is a holder place for all the chunks
 we then print how things were rearranged that is (c a b)
 
+
+
 3) Substitution0
+import string
+with open("message.txt") as filp:
+     contents = filp.read()
+ 
+uppercase_key = "VOUHMJLTESZCDKWIXNQYFAPGBR"
+lowercase_key = uppercase_key.lower()
+
+for character in contents:
+	if character.isupper():
+		position = uppercase_key.index(character)
+		print(string.ascii_uppercase[position], end="")
+
+	elif character.islower():
+		position = lowercase_key.index(character)
+		print(string.ascii_lowercase[position],end="")
+
+	else:
+		print(character,end="")
+          
+
+4) Basic mod1
+
+import string
+
+with open("message.txt") as filp:
+	contents = filp.read()
+	numbers = [int(val) for val in contents.split()]
+	for number in numbers :
+		modulus = number % 37
+
+		if modulus in range(26):
+			print(string.ascii_uppercase[modulus], end="")
+
+		elif modulus in range(26 , 36):
+			print(string.digits[modulus - 26], end="")
+
+		else:
+			print("_", end="")
+               
+           
+5) Basic Mod2
+
+import string
+
+with open("message.txt.1") as filp:
+	contents = filp.read()
+	numbers = [int(val) for val in contents.split()]
+	for number in numbers :
+		modulus = pow(number, -1, 41)
+
+		if modulus in range(1,27):
+			print(string.ascii_uppercase[modulus-1], end="")
+
+		elif modulus in range(27 , 37):
+			print(string.digits[modulus - 27], end="")
+
+		else:
+			print("_", end="")
+
+    
+
 
 
 
