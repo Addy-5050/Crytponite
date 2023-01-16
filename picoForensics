@@ -1,0 +1,52 @@
+1) Enhance
+
+we first download the file and then display all the strings in the file
+we then notice a pattern when we go down in the strings displayed that shows picoCTF like this shown
+id="tspan3748">p </tspan><tspan
+         sodipodi:role="line"
+         x="107.43014"
+         y="132.08942"
+         style="font-size:0.00352781px;line-height:1.25;fill:#ffffff;stroke-width:0.26458332;"
+         id="tspan3754">i </tspan><tspan
+         sodipodi:role="line"
+         x="107.43014"
+         y="132.09383"
+         style="font-size:0.00352781px;line-height:1.25;fill:#ffffff;stroke-width:0.26458332;"
+         id="tspan3756">c </tspan><tspan
+         sodipodi:role="line"
+         x="107.43014"
+         y="132.09824"
+         style="font-size:0.00352781px;line-height:1.25;fill:#ffffff;stroke-width:0.26458332;"
+         id="tspan3758">o </tspan><tspan
+         sodipodi:role="line"
+ we then cat out the file and pipe it with grep to give only the lines that end with <\tspan which gives us something like this
+ 
+         id="tspan3748">p </tspan><tspan
+         id="tspan3754">i </tspan><tspan
+         id="tspan3756">c </tspan><tspan
+         id="tspan3758">o </tspan><tspan
+         id="tspan3760">C </tspan><tspan
+         id="tspan3762">T </tspan><tspan
+         id="tspan3764">F { 3 n h 4 n </tspan><tspan
+         id="tspan3752">c 3 d _ d 0 a 7 5 7 b f }</tspan></text>
+         the flag thus is picoCTF{3nh4nc3d_d0a757bf}
+         
+  
+2) Lookey here
+wget the file 
+then we run the command:-  cat anthems.flag.txt | grep "pico"
+which gives only one line that contains the the word pico in it we can see the flag 
+
+3) redaction gone wrong
+
+4) Packet prinmers
+wget the file
+strings network-dump.flag.pcap we print the printable strings in the file and we find the flag but with flags so we run the following command
+strings network-dump.flag.pcap | grep "p i c o" | tr -d " " we get the required flag
+
+5) Sleuthkit Intro
+wget the file and then gunzip it to remove the gz extension
+mmls disk.img   as stated in the problem and rthe record the aprtition of linux
+nc saturn.picoctf.net 52279 as stated in the problem and put the  value of linux partition and we get the flag
+
+
