@@ -1,0 +1,25 @@
+1) Includes
+go to the website and right click to view page source
+afetr that click on the css and javascript codes for the flags
+
+2) Inspect HTML
+go to the website and right click to view page source
+we can see the flag
+
+3)Local Authority
+go to the website and right click to inspect the web page
+enter any login details and hit enter
+when we click the sources tab we see a javascript when we open it we can see the login details
+then we enter the true login details and get the flag
+
+4) Search Source
+
+5)Forbidden Path
+
+6) Power Cookie
+go to the website and click the continue as guest button
+open the developer tools and go to the applications in that we can see the cookies option
+we need to modify the cookie value to 1  making the value to true to indicate that we are the admin and thus giving us the flag
+
+7) Secrets
+
