@@ -1,0 +1,34 @@
+1) file_run1
+wget the file
+run the command chmod -x run  to change the file modification to executable
+./run to run the file which gives us the flag
+
+2) file_run2
+wegt the file
+run the command chmod -x run to change the modification of the file to executable
+./run Hello! to run the file with an input which gives us the flag
+
+3) gdb testdrive
+wget the file
+sudo apt install gdb to install the debugger
+chmod +x gdbme to make the file executable
+then follow along the commands given in the question
+
+4)patchme.py
+wget both the file
+open both the file
+in the python script we can see the password in the if statment for the password
+python3 patchme.py  to run the file
+it asks for a password which is the same as we recognized from the script
+when we input the password we get the flag
+
+5)Safe Opener
+wget the file
+in the java file we copy the encoded string
+we then run the command echo 'thestring' | base64 -d
+base64 -d helps in decoding the string if it is converted into base64 form
+we then get the flag
+
+6)
+
+
