@@ -23,3 +23,28 @@ we need to modify the cookie value to 1  making the value to true to indicate th
 
 7) Secrets
 
+8) scavenger Hunt
+When we inspect the file we find the first part of the flag in html file
+The css gives us the second part of the flag
+In the javascript we find a hint to keep the page from indexing
+We put a robots.txt in front of the url which denotes not to index the the page and we get the flag
+We also get the next step for getting the flag that is to access an apache server
+We do this by adding the extension .htaccess in front of url and we get teh next part of the flag
+We get another step fort he flag and that tells us to access a hidden file for that we use
+DS_Store which keeps a track of whats goin with the file system and we get the file
+
+9) Cookies
+We got the link and inspect the page and go to the cookies section
+when we put the name of the example cookie we get the value as 1 for the cookie
+we can also edit those values and weedit the value to 2 and reload the page
+we get name of another cookie
+by editing the values we get the flag at value 18
+
+10)Logon
+We go the page and type in joe as the username and a random password
+we successfully login but we dont get the flag
+on inspecting the cookies we see the value of password as false, we edit this value to true andd
+reload the file and we get the flag
+
+
+
