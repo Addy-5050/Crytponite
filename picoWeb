@@ -46,5 +46,16 @@ we successfully login but we dont get the flag
 on inspecting the cookies we see the value of password as false, we edit this value to true andd
 reload the file and we get the flag
 
+11) Login
+We inspect the page and we find css and java scripts
+we analyse the java by first formatting the code in vstudio as it was all in single line
+we then see the ternary operations for username and password. We also see that it is in base64 format
+because of the 'btoa' function which converts into base64
+we take both the username and password and put it a online base64 converter and we get the username and password
+in ascii. We put in the correct details and get teh flag
+
+12) Dont use client side
+We inspect the webpage and look throught the javascript and we find number of nested ifs
+we simply go substring wise according to the conditions and form the flag
 
 
