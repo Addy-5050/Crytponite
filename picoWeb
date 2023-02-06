@@ -58,4 +58,134 @@ in ascii. We put in the correct details and get teh flag
 We inspect the webpage and look throught the javascript and we find number of nested ifs
 we simply go substring wise according to the conditions and form the flag
 
+13) Some assembly required
+Web Assembly(Wasm) is a binary instruction format for a stack based virtual machine it is designed
+to be portable compliation target for programming Languages
+When we go to the website and inspect the wasm file we find the flag in it
+
+14) Caas
+We open the website and write a random message in the given url on the webpage
+There is nothing we get on inspecting the current page
+We download the given file in the problem and analyze the given code
+We find that there is GET method and see that the line /cowsay/:message line
+which basically grabs the next element as a message
+We set up a proxy using burp and look at the request
+We see message 'abc' is passed to the path and we want to add another command to it so we send it to reapeater
+We edit the GET method line and give the command
+GET /cowsay/abc;ls; HTTP/1.1 which basically lists out all the files as in command line
+Then we modify the command to:
+GET /cowsay/abc;cat%20falg.txt; HTTP/1.1
+we use %20 as we cannot use space in a URL so %20 is the URL equivalent of a space
+We get the flag when we execute the command
+
+15) GET aHEAD
+We open the browser using burp as mentioned in hint and set up a proxy
+We the send some traffic and analyse them
+we notice we get a GET method and a POST method
+we send them both to the repeater and make some changes in both of them
+We change first in GET method instead of GET we type HEAD and then send it to the browser
+we get the flag
+HEAD method asks for a response identical to that of GET request but without the response body
+
+16) Some assembly required 2
+we go to the file and observe that there is a JS file and WASM (Web Assembly)
+and see the check flag condition in wasm file
+what is happening in the file is that the flag is getting XORed with 8 before beiing saved.
+We see that check flag function uses compare to comapret he strings
+xakgK\5cNs((j:l9<mimk?:k;9;8=8?=0?>jnn:j=lu\00\00
+we XOR this with 8 and get the flag
+
+17) Roboto Sans
+Website owners use the /robots.txt file to give the instructions about their site to web robots; this 
+is called The Robots Exclusion Protocol
+
+Since the challenge is named Roboto sans it made sense to check the robots.txt extension of the site
+we see some information like this
+User-agent *
+Disallow: /cgi-bin/
+Think you have seen your flag or want to keep looking.
+
+ZmxhZzEudHh0;anMvbXlmaW
+anMvbXlmaWxlLnR4dA==
+svssshjweuiwl;oiho.bsvdaslejg
+Disallow: /wp-admin/
+
+looking at the == sign it gives us the idea that maybe a base64 format and when we decode it
+we get js/myfile
+we add this to the url and we get our flag
+
+
+18) SQL Direct
+We first launch the instance and then get the server details and password and we login using them
+we then go through the help command 
+\? for psql command help
+we use \d to list the tables
+we then write 
+select * from flags; to give all the contents inside the flag entry
+we then get the flag
+
+19)Pico Browser
+What is User Agent? 
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36
+This is my user agent
+This page shows us what my web browser is sending in the "User Agent" header for my HTTP requests
+This means it tells us where you are coming from what browser am I using
+This Header can be manipulated or modified or spoof it
+https://www.whatismybrowser.com/detect/what-is-my-user-agent/
+
+curl is a command line tool that helps to transfer data to or from a server using any of the 
+supported protocols 
+for the challenge we basically need to modify our user agent name
+ curl "https://jupiter.challenges.picoctf.org/problem/50522/"
+ gives us the content of the URL on the terminal
+ to modify the user agent we do
+ curl "https://jupiter.challenges.picoctf.org/problem/50522/" -H "User Agent: picobrowser"
+ 
+ we then get the flag in the contents of the URL
+ -H helps in providing our new header
+ 
+ 20) client-side-again
+ what is obfuscation- it means to make something difficult to understand. A code is obfuscated
+ to protect intellectual property and to prevent an attacker from reverse engineering a code
+ 
+ when we analyse the website we find a javascript which has a obfuscated line
+ we can pretty print that line to analyse further
+ we find this line
+    var _0x5a46 = ['0a029}', '_again_5', 'this', 'Password\x20Verified', 'Incorrect\x20password', 'getElementById', 'value', 'substring', 'picoCTF{', 'not_this'];
+and we can make out the flag from this line
+picoCTF{not_this_again_50a029}
+
+21) It is my birthday
+What is hash function- it is any function that can be used to map data of any length to a fixed length
+we need to give a two diiferent files whose MD5 hash values are same to cause a collision 
+we use md5 cause it has possibility of collision
+we can find two diiferernt files that generate same md5 hash on internet 
+after downloading those files I changed their extension to pdf and submitted them
+it opens a source code and we can find the flag
+
+22) Who Are You?(should be worth atleast 200 points)
+When we go to the site it said that only people using PicoBrowser are accepted
+we can change the header using curl, but i used a chrome extension that allowed to change the headers
+1) User-Agent - PicoBrowser
+after refreshing the page it said  that he does not like users form another site so we have to change the 'Referer' and give the original URL
+2) Referer - http://mercury.picoctf.net:1270/
+After he said that the site was only active in 2018 so we change the Date header
+3) Date - Sat, 23 Dec 2018 07:28:00 GMT
+After that he said that he does not like being tracked so we have to change the DNT header(do not track)
+4) DNT - 1
+after that he said that users Sweden are allowed so we have to change the IP address 
+5) X-Forwarded-For - 103.57.72.0 (Sweden IP address from net)
+after that he wants to see if we know swedish so we have to change the language to swedish
+6) Accept-Language - sv
+we get the flag on the site
+
+23)JaWT
+JSON Web Token(JWT) is an open standard that defines a compact and self contained way for securely
+transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signes(key)
+JSON Stands for JavaScriptObjectNotation
+It is a text format for storing and transporting data
+
+for this challenge we need the password for admin user name as hinted on the JaWT page
+Jwt has a header, a payload and a signature(key)
+
 
