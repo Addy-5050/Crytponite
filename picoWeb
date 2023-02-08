@@ -91,7 +91,7 @@ HEAD method asks for a response identical to that of GET request but without the
 we go to the file and observe that there is a JS file and WASM (Web Assembly)
 and see the check flag condition in wasm file
 what is happening in the file is that the flag is getting XORed with 8 before beiing saved.
-We see that check flag function uses compare to comapret he strings
+We see that check flag function uses compare to comapre the strings
 xakgK\5cNs((j:l9<mimk?:k;9;8=8?=0?>jnn:j=lu\00\00
 we XOR this with 8 and get the flag
 
@@ -187,5 +187,90 @@ It is a text format for storing and transporting data
 
 for this challenge we need the password for admin user name as hinted on the JaWT page
 Jwt has a header, a payload and a signature(key)
+When we give any username and copy the cookie and put it in JWT debugger we can se it decodes the cookie or token
+and we can see our username in the payload section 
+This also works in reverse if make changes in the payload section like for example i make the user admin
+it would provide with an encoded cookie which we can then paste it in the cookies on the website
+however we wont be able to access the it gives an 'Internal Server Error' because the signature does not match the payload which we modified
+
+We see there is a link on the site which is github repository of John The Ripper which is an advanced offline password cracker. If the private key is weak
+we can use John The Ripper.It basically takes the input and a wordlist and quickly guess and checks
+
+On the terminal
+john JAWT --wordlist=/usr/share/wordlists/rockyou.txt --format=HMAC-SHA256
+
+Here JAWT is the file which contains the encoded cookie for the user admin
+wordlist is a list of passwords from a site rockyou which contains passwords of the users on the site rockyou after a data breach
+--format=HMAC-SHA256 is what type of encryption is used. We know this cause it is there on the JWT website
+after this we do
+john --show JAWT and it shows ilovepico
+"Found" the password in between ilovepinky53..ilovepatrice
+meainng it guessed that "ilovepico" worked for the JAWT signature
+
+so now we can fill ilovepico in the signature section of JWT site and we get the cookie and user as admin and we get the encoded cookie.
+we take this cookie and paste it and refresh the page we get the flag
+
+24) Irish Name Repo 1
+we go to the login page and from the hints we know that we have to use some kind of sql injection
+so in password I typed ' OR '1'='1 > the most basic sql injection and user name as admin and we get the flag
+
+25) Irish Name Repo 2
+This time the password is being filtered so we can use some sql injection in username section
+we can use admin.;-- which comments out the rest of the fields and checks only the username
+
+26) Web Gaunlet
+sql injections
+when we put a username and password as admin and admin we get the following message
+SELECT * FROM users WHERE username='admin' AND password='admim'
+so for round 1 we can do something like in the username part as admin';-- which basically comments rest everything out
+SELECT * FROM users WHERE username='admin';--' we skip the rest
+
+for round 2 
+for this we dont to use OR and like =-- we get this idea from filters.php file
+so in username we put admin'; (removing --)
+
+for round 3
+we get new filters or and = like >  < --
+so again we run the same username as before admin';
+
+for round 4
+we get new filters or and = like >< -- admin
+to bypass this we use a command like 
+SELECT * FROM users WHERE username='addy'/**/UNION/**/SELECT/**/*/**/FROM/**/users/**/LIMIT/**/1;
+here /**/ represents a space as we can substitute space
+UNION combines two select tables 
+we need to selct from users and limit it 1 result as 1 is usually admin
+
+for round 5 
+we get new filters this time we cant use UNION also
+|| allows for string concatenation we can do adm'||'in
+we then refresh the page and get the flag
+
+
+27) Web Gaunlet 2
+On the filters page we can see the following filters 
+Filters: or and true false union like = > < ; -- /* */ admin
+So we cannot use them
+We can again use the concat like in Web Gaunlet1
+If we put the following query in username : adm'||'in and pass for password it shows the following
+SELECT username, password FROM users WHERE username='adm'||'in'' AND password='pass'
+
+So our password is wrong
+we can get rid of the AND password='pass' line by using 'except'
+in user name we put  adm'||'in except select  and ,' in password
+
+We basically said except select this "AND password='pass'" constant string and "(,') this constant string
+we selected the constant string we are going to take everybody from users wherer the username is admin and we will subtract out if we ever had
+a usre name of AND password with an empty password
+We get the flag in filter php
+
+28) Most Cookies
+Cookies track user activity to save user information in the browser as key value pairs which can be accessed whenever necessary by the developers 
+to make a website easier to use
+Flask is a lightweight, web development framework built using python.
+
+
+
+
 
 
