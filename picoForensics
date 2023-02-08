@@ -49,4 +49,16 @@ wget the file and then gunzip it to remove the gz extension
 mmls disk.img   as stated in the problem and rthe record the aprtition of linux
 nc saturn.picoctf.net 52279 as stated in the problem and put the  value of linux partition and we get the flag
 
+6) Information
+we can use tools like exiftool which displays information of the file
+wget https://mercury.picoctf.net/static/b4d62f6e431dc8e563309ea8c33a06b3/cat.jpg
+exiftool cat.png
+it displays all the data of the file and we notice that The licesnse is base64 encoded
+we can decode using any online tool and get the flag
+
+7) Glory of Garden
+wget the file
+I ran the following command- strings garden.jpg
+it prints allt he strings in the jpg and we get flag in the end
+
 
