@@ -1,0 +1,17 @@
+A Lightweight Chaos-Based Medical Image Encryption Scheme Using Random Shuffling and XOR Operations
+Masood et al. suggested a light-weight, highly secure encryption method for medical images in this study that is based on the Henon chaotic map, Brownian motion, and Chen's chaotic system. 
+In the suggested system, diffusion is obtained using Brownian motion and Chen's chaotic map, while confusion is obtained using a two-dimensional Henon chaotic map.
+The outcomes of the experiments demonstrate that the suggested cryptosystem is a lightweight strategy that needs fewer computational resources and can reach the acceptable security level for encrypting medical images.
+
+
+Novel Medical Image Encryption Scheme Based on Chaos and DNA Encoding
+Belazi et al. suggested a new chaos-based medical picture encryption system to circumvent the use of just pixel-based substitution and bit-level replacement while using cascade for image encryption.
+Two iterative phases make up the cryptosystem, which is preceded by a key creation layer that uses the SHA-256 hash function. The block-based permutations, pixel-based substitutions, DNA encoding, bit-level substitutions, DNA decoding, and bit-level diffusion make up each phase of the encrypted system. While the sine-Chebyshev map is used for the key stream in bit level diffusion, the logistic-Chebyshev map generates the key streams in bit level substitution.
+Computer simulations and security assessments both support the idea's suitability as a defence against various types of assaults. The potential for real-time and secure picture applications is high given its low complexity.
+
+
+
+Improved Chaos-Based Cryptosystem for Medical Image Encryption and Decryption
+Gafsi et al.[] used improved chaos to create a fast medical image encryption system to address the problems of[]
+A sophisticated chaos-based PRNG is intended to produce an encryption key of excellent quality. The created key exhibits great levels of complexity, entropy, and randomness. For the image encryption, a better design based on the confusion and diffusion properties is suggested. To create the encrypted images, the image goes through a processing cycle that consists of four operations: random permutations of the position pixel, position permutations of the pixel's bits, S-box pixel substitution, and XOR diffusion.
+To fulfil real-time demands, the algorithm can fully utilise parallelism and pipeline execution in hardware implementation. Since the PRNG passed the NIST 800-22 test suit, it can be used for secure image encryption. It offers a lot of key space that is resistant to brute force attacks.
