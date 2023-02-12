@@ -13,8 +13,17 @@ when we click the sources tab we see a javascript when we open it we can see the
 then we enter the true login details and get the flag
 
 4) Search Source
+We go through the html code and find many jquery/javascript files. I went through all the files one by one and searched pico in them
+Then I went through all the css and searched pico in them and foun in one of them
+We coul also have searched in the developer tools we can search in all files 'pico' and we can track it down
 
 5)Forbidden Path
+In this challenge we need to know about absoulte and relative paths
+../html/divine-comedy.txt is usedd to climb the parent directory we are using a relavtive path
+in this challenge we need to clim 4 times that is 4 sets
+../../../../flag.txt and we get the flag
+
+
 
 6) Power Cookie
 go to the website and click the continue as guest button
@@ -22,6 +31,15 @@ open the developer tools and go to the applications in that we can see the cooki
 we need to modify the cookie value to 1  making the value to true to indicate that we are the admin and thus giving us the flag
 
 7) Secrets
+We open the source code we find a folder name called as secret/assets/index.css but here is nothing in it
+we can change the url to secrets/assets and it shows forbidden some error
+we can change the URL again and remove assets and keeping only secrets and we get a new webpage with a chris patt gif
+When we view the source code we find a hidden/file.css file present but its empty
+Again we move up the page to access the hidden directory, we get a new webpage
+When we view the source code we find a supperhidden/xdfgwd.html page
+but it does not exist but when we remove the xdfgwd from the url we are directed to new page which has the flag
+we get the flag by highlighting the page with our mouse
+
 
 8) scavenger Hunt
 When we inspect the file we find the first part of the flag in html file
